@@ -35,9 +35,8 @@
         <div class="test"></div>
     </div>
     <script>
-        // Problems: can't do more than 1 calculation = Because in operate() function, display is
-        // permanently the previous calculation's answer
-        
+        // To do: when do I want to check if operateValue.length === 2 ?
+
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
@@ -50,6 +49,7 @@
                 disp.textContent = maths
                 storedNums.push(maths)
                 operateValue.splice(0,operateValue.length)
+
             } else if (operatR === "-") {
                 let maths = subtract(a, b)
                 disp.textContent = maths
@@ -78,6 +78,11 @@
             operateValue.push(mkString)
             let clear = array.splice(0,array.length)
         }
+
+        function startCalc() {
+            joined(storedNums)
+            operate(parseInt(operateValue[0]), operateValue[1], parseInt(operateValue[2]))
+        }
         
         function add(a, b) {
             return a + b
@@ -97,32 +102,41 @@
 
         // Operator buttons
         let equalsToButton = document.querySelector(".equalsTo")
-        equalsToButton.addEventListener("click", () => {
-            joined(storedNums)
-            operate(parseInt(operateValue[0]), operateValue[1], parseInt(operateValue[2]))
-        })
+        equalsToButton.addEventListener("click", startCalc)
 
         let plusButton = document.querySelector(".plus")
         plusButton.addEventListener("click", () => {
             joined(storedNums)
+            if (operateValue.length === 3) {
+                startCalc()
+            }
             operateValue.push("+")
             disp.textContent += "+"
         })
         let minusButton = document.querySelector(".minus")
         minusButton.addEventListener("click", () => {
             joined(storedNums)
+            if (operateValue.length === 3) {
+                startCalc()
+            }
             operateValue.push("-")
             disp.textContent += "-"
         })
         let timesButton = document.querySelector(".times")
         timesButton.addEventListener("click", () => {
             joined(storedNums)
+            if (operateValue.length === 3) {
+                startCalc()
+            }
             operateValue.push("*")
             disp.textContent += "*"
         })
         let divideButton = document.querySelector(".divide")
         divideButton.addEventListener("click", () => {
             joined(storedNums)
+            if (operateValue.length === 3) {
+                startCalc()
+            }
             operateValue.push("/")
             disp.textContent += "/"
         })
