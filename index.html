@@ -24,7 +24,7 @@
             <button class="no9">9</button>
             <button class="no0">0</button>
         </div>
-        <div class="operators">
+        <div class="operatorStores">
             <button class="plus">+</button>
             <button class="minus">-</button>
             <button class="times">*</button>
@@ -35,12 +35,26 @@
         <div class="test"></div>
     </div>
     <script>
-        let displayValue = 0
-        let displayOperator = 0
+        let displayValue = []
+        let operatorStore = []
         let disp = document.querySelector(".displayV")
         let changeDisplay = document.querySelector(".display")
 
-        // Operator functions
+        // OperatorStore functions
+        function operate(a, operatorStore, b) {
+            if (operatorStore.includes("+")) {
+                console.log(add(a, b))
+            } else if (operatorStore.includes("-")) {
+                console.log(subtract(a, b))
+            } else if (operatorStore.includes("*")) {
+                console.log(multiply(a, b))
+            } else if (operatorStore.includes("/")) {
+                console.log(divide(a, b))
+            } else {
+                console.log("ERROR!")
+            }
+        }
+
         function add(a, b) {
             return a + b
         }
@@ -57,95 +71,82 @@
             return a / b
         }
 
-        function operate(a, operator, b) {
-            if (operator === "+") {
-                return add(a, b)
-            } else if (operator === "-") {
-                return subtract(a, b)
-            } else if (operator === "*") {
-                return multiply(a, b) 
-            } else if (operator === "/") {
-                return divide(a, b)
-            }
-        }
+        // OperatorStore buttons
+        let equalsToButton = document.querySelector(".equalsTo")
+        equalsToButton.addEventListener("click", () => {
+            operate(displayValue[0], operatorStore, displayValue[1])
+        })
 
-        // Operator buttons
         let plusButton = document.querySelector(".plus")
         plusButton.addEventListener("click", () => {
-            displayOperator += "+"
+            operatorStore.push("+")
             disp.textContent += "+"
         })
         let minusButton = document.querySelector(".minus")
         minusButton.addEventListener("click", () => {
-            displayOperator += "-"
+            operatorStore.push("-")
             disp.textContent += "-"
         })
         let timesButton = document.querySelector(".times")
         timesButton.addEventListener("click", () => {
-            displayOperator += "*"
+            operatorStore.push("*")
             disp.textContent += "*"
         })
         let divideButton = document.querySelector(".divide")
         divideButton.addEventListener("click", () => {
-            displayOperator += "/"
+            operatorStore.push("/")
             disp.textContent += "/"
         })
-        let equalsToButton = document.querySelector(".equalsTo")
-        equalsToButton.addEventListener("click", () => {
-            
-        })
         
-        
-
         // Number buttons
         let display1 = document.querySelector(".no1")
         display1.addEventListener("click", () => {
-            displayValue += 1
+            displayValue.push(1)
             disp.textContent += 1
         })
         let display2 = document.querySelector(".no2")
         display2.addEventListener("click", () => {
-            displayValue += 2
+            displayValue.push(2)
             disp.textContent += 2
         })
         let display3 = document.querySelector(".no3")
         display3.addEventListener("click", () => {
-            displayValue += 3
+            displayValue.push(3)
             disp.textContent += 3
         })
         let display4 = document.querySelector(".no4")
         display4.addEventListener("click", () => {
-            displayValue += 4
+            displayValue.push(4)
             disp.textContent += 4
         })
         let display5 = document.querySelector(".no5")
         display5.addEventListener("click", () => {
-            displayValue += 5
+            displayValue.push(5)
             disp.textContent += 5
         })
         let display6 = document.querySelector(".no6")
         display6.addEventListener("click", () => {
-            displayValue += 6
+            displayValue.push(6)
             disp.textContent += 6
         })
         let display7 = document.querySelector(".no7")
         display7.addEventListener("click", () => {
-            displayValue += 7
+            displayValue.push(7)
             disp.textContent += 7
         })
         let display8 = document.querySelector(".no8")
         display8.addEventListener("click", () => {
-            displayValue += 8
+            displayValue.push(8)
             disp.textContent += 8
         })
         let display9 = document.querySelector(".no9")
         display9.addEventListener("click", () => {
-            displayValue += 9
+            displayValue.push(9)
             disp.textContent += 9
         })
         let display0 = document.querySelector(".no0")
         display0.addEventListener("click", () => {
-            displayValue += 0
+            displayValue.push(0)
             disp.textContent += 0
         })
     </script>
