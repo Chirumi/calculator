@@ -24,7 +24,7 @@
             <button class="no9">9</button>
             <button class="no0">0</button>
         </div>
-        <div class="operatorStores">
+        <div class="storedNumss">
             <button class="plus">+</button>
             <button class="minus">-</button>
             <button class="times">*</button>
@@ -35,26 +35,31 @@
         <div class="test"></div>
     </div>
     <script>
-        let displayValue = []
-        let operatorStore = []
+        let storedNums = []
+        let operateValue = []
         let disp = document.querySelector(".displayV")
         let changeDisplay = document.querySelector(".display")
 
-        // OperatorStore functions
-        function operate(a, operatorStore, b) {
-            if (operatorStore.includes("+")) {
+        // storedNums functions
+        function operate(a, operatR, b) {
+            if (operatR.includes("+")) {
                 console.log(add(a, b))
-            } else if (operatorStore.includes("-")) {
+            } else if (operatR.includes("-")) {
                 console.log(subtract(a, b))
-            } else if (operatorStore.includes("*")) {
+            } else if (operatR.includes("*")) {
                 console.log(multiply(a, b))
-            } else if (operatorStore.includes("/")) {
+            } else if (operatR.includes("/")) {
                 console.log(divide(a, b))
             } else {
                 console.log("ERROR!")
             }
         }
 
+        function joined(array) {
+            let mkString = array.join("")
+            operateValue.push(mkString)
+            let clear = array.splice(0,array.length)
+        }
         
         function add(a, b) {
             return a + b
@@ -72,82 +77,87 @@
             return a / b
         }
 
-        // OperatorStore buttons
+        // Operator buttons
         let equalsToButton = document.querySelector(".equalsTo")
         equalsToButton.addEventListener("click", () => {
-            operate(displayValue[0], operatorStore, displayValue[1])
+            joined(storedNums)
+            operate(parseInt(operateValue[0]), operateValue[1], parseInt(operateValue[2]))
         })
 
         let plusButton = document.querySelector(".plus")
         plusButton.addEventListener("click", () => {
-            operatorStore.push("+")
+            joined(storedNums)
+            operateValue.push("+")
             disp.textContent += "+"
         })
         let minusButton = document.querySelector(".minus")
         minusButton.addEventListener("click", () => {
-            operatorStore.push("-")
+            joined(storedNums)
+            operateValue.push("-")
             disp.textContent += "-"
         })
         let timesButton = document.querySelector(".times")
         timesButton.addEventListener("click", () => {
-            operatorStore.push("*")
+            joined(storedNums)
+            operateValue.push("*")
             disp.textContent += "*"
         })
         let divideButton = document.querySelector(".divide")
         divideButton.addEventListener("click", () => {
-            operatorStore.push("/")
+            joined(storedNums)
+            operateValue.push("/")
             disp.textContent += "/"
         })
         
         // Number buttons
         let display1 = document.querySelector(".no1")
         display1.addEventListener("click", () => {
-            displayValue.push(1)
+            storedNums.push(1)
             disp.textContent += 1
         })
         let display2 = document.querySelector(".no2")
         display2.addEventListener("click", () => {
-            displayValue.push(2)
+            storedNums.push(2)
             disp.textContent += 2
         })
         let display3 = document.querySelector(".no3")
         display3.addEventListener("click", () => {
-            displayValue.push(3)
+            storedNums.push(3)
             disp.textContent += 3
         })
         let display4 = document.querySelector(".no4")
         display4.addEventListener("click", () => {
-            displayValue.push(4)
+            storedNums.push(4)
             disp.textContent += 4
         })
         let display5 = document.querySelector(".no5")
         display5.addEventListener("click", () => {
-            displayValue.push(5)
+            storedNums.push(5)
             disp.textContent += 5
         })
         let display6 = document.querySelector(".no6")
         display6.addEventListener("click", () => {
-            displayValue.push(6)
+            storedNums.push(6)
             disp.textContent += 6
         })
         let display7 = document.querySelector(".no7")
         display7.addEventListener("click", () => {
-            displayValue.push(7)
+            storedNums.push(7)
             disp.textContent += 7
         })
         let display8 = document.querySelector(".no8")
         display8.addEventListener("click", () => {
-            displayValue.push(8)
+            storedNums.push(8)
             disp.textContent += 8
         })
         let display9 = document.querySelector(".no9")
         display9.addEventListener("click", () => {
-            displayValue.push(9)
+            storedNums.push(9)
             disp.textContent += 9
         })
         let display0 = document.querySelector(".no0")
         display0.addEventListener("click", () => {
-            displayValue.push(0)
+            storedNums.push(0)
             disp.textContent += 0
         })
     </script>
