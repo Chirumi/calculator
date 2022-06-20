@@ -47,26 +47,26 @@
             if (operatR === "+") {
                 let maths = add(a, b)
                 disp.textContent = maths
-                storedNums.push(maths)
                 operateValue.splice(0,operateValue.length)
+                operateValue.push(maths)
 
             } else if (operatR === "-") {
                 let maths = subtract(a, b)
                 disp.textContent = maths
-                storedNums.push(maths)
                 operateValue.splice(0,operateValue.length)
+                operateValue.push(maths)
 
             } else if (operatR === "*") {
                 let maths = multiply(a, b)
                 disp.textContent = maths
-                storedNums.push(maths)
                 operateValue.splice(0,operateValue.length)
+                operateValue.push(maths)
 
             } else if (operatR === "/") {
                 let maths = divide(a, b)
                 disp.textContent = maths
-                storedNums.push(maths)
                 operateValue.splice(0,operateValue.length)
+                operateValue.push(maths)
 
             } else {
                 console.log("ERROR!")
