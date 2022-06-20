@@ -35,7 +35,8 @@
         <div class="test"></div>
     </div>
     <script>
-        // TO DO: DISPLAY ANSWERS ON disp. Push operate() answers into storedNums to be used for next
+        // Problems: can't do more than 1 calculation = Because in operate() function, display is
+        // permanently the previous calculation's answer
         
         let storedNums = []
         let operateValue = []
@@ -44,14 +45,30 @@
 
         // storedNums functions
         function operate(a, operatR, b) {
-            if (operatR.includes("+")) {
-                disp.textContent = add(a, b)
-            } else if (operatR.includes("-")) {
-                disp.textContent = subtract(a, b)
-            } else if (operatR.includes("*")) {
-                disp.textContent = multiply(a, b)
-            } else if (operatR.includes("/")) {
-                disp.textContent = divide(a, b)
+            if (operatR === "+") {
+                let maths = add(a, b)
+                disp.textContent = maths
+                storedNums.push(maths)
+                operateValue.splice(0,operateValue.length)
+                
+            } else if (operatR === "-") {
+                let maths = subtract(a, b)
+                disp.textContent = maths
+                storedNums.push(maths)
+                operateValue.splice(0,operateValue.length)
+
+            } else if (operatR === "*") {
+                let maths = multiply(a, b)
+                disp.textContent = maths
+                storedNums.push(maths)
+                operateValue.splice(0,operateValue.length)
+
+            } else if (operatR === "/") {
+                let maths = divide(a, b)
+                disp.textContent = maths
+                storedNums.push(maths)
+                operateValue.splice(0,operateValue.length)
+
             } else {
                 console.log("ERROR!")
             }
