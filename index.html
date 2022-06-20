@@ -35,6 +35,8 @@
         <div class="test"></div>
     </div>
     <script>
+        // TO DO: DISPLAY ANSWERS ON disp. Push operate() answers into storedNums to be used for next
+        
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
@@ -43,13 +45,13 @@
         // storedNums functions
         function operate(a, operatR, b) {
             if (operatR.includes("+")) {
-                console.log(add(a, b))
+                disp.textContent = add(a, b)
             } else if (operatR.includes("-")) {
-                console.log(subtract(a, b))
+                disp.textContent = subtract(a, b)
             } else if (operatR.includes("*")) {
-                console.log(multiply(a, b))
+                disp.textContent = multiply(a, b)
             } else if (operatR.includes("/")) {
-                console.log(divide(a, b))
+                disp.textContent = divide(a, b)
             } else {
                 console.log("ERROR!")
             }
