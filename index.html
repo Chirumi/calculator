@@ -102,7 +102,7 @@
             if (Number.isNaN(n)) {
                 return disp.textContent = "Syntax ERROR"
             }
-            operate(parseInt(operateValue[0]), operateValue[1], parseInt(operateValue[2]))
+            operate(parseFloat(operateValue[0]), operateValue[1], parseFloat(operateValue[2]))
         }
         
         function add(a, b) {
@@ -165,8 +165,10 @@
 
         let dotButton = document.querySelector(".dot")
         dotButton.addEventListener("click", () => {
-            storedNums.push(".")
-            disp.textContent += "."
+            if (!(storedNums.includes("."))) {
+                storedNums.push(".")
+                disp.textContent += "."
+            }
         })
         
         // Number buttons
