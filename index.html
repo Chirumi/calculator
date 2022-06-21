@@ -29,6 +29,7 @@
             <button class="minus">-</button>
             <button class="times">*</button>
             <button class="divide">/</button>
+            <button class="dot">.</button>
             <button class="equalsTo">=</button>
             <button class="clr">Clear</button>
         </div>
@@ -54,7 +55,7 @@
 
         // storedNums functions
         function operate(a, operatR, b) {
-            if (b === 0) {
+            if (b === 0 && operatR === "/") {
                 return disp.textContent = "ERROR"
             } else {
                 if (operatR === "+") {
@@ -160,6 +161,12 @@
             }
             operateValue.push("/")
             disp.textContent += "/"
+        })
+
+        let dotButton = document.querySelector(".dot")
+        dotButton.addEventListener("click", () => {
+            storedNums.push(".")
+            disp.textContent += "."
         })
         
         // Number buttons
