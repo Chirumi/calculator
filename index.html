@@ -37,6 +37,7 @@
         <div class="test"></div>
     </div>
     <script>
+        // Make it possible to change operators using if conditionals
         // Make it possible to handle negative numbers
 
         let storedNums = []
@@ -135,8 +136,13 @@
             if (operateValue.length === 3) {
                 startCalc()
             }
-            operateValue.push("+")
-            disp.textContent += "+"
+            if (typeof operateValue[1] === "string") {
+                operateValue.splice(1,1,"+")
+                disp.textContent = `${operateValue[0]}+`
+            } else {
+                operateValue.push("+")
+                disp.textContent += "+"
+            }
         })
         let minusButton = document.querySelector(".minus")
         minusButton.addEventListener("click", () => {
@@ -144,8 +150,13 @@
             if (operateValue.length === 3) {
                 startCalc()
             }
-            operateValue.push("-")
-            disp.textContent += "-"
+            if (typeof operateValue[1] === "string") {
+                operateValue.splice(1,1,"-")
+                disp.textContent = `${operateValue[0]}-`
+            } else {
+                operateValue.push("-")
+                disp.textContent += "-"
+            }
         })
         let timesButton = document.querySelector(".times")
         timesButton.addEventListener("click", () => {
@@ -153,8 +164,13 @@
             if (operateValue.length === 3) {
                 startCalc()
             }
-            operateValue.push("*")
-            disp.textContent += "*"
+            if (typeof operateValue[1] === "string") {
+                operateValue.splice(1,1,"*")
+                disp.textContent = `${operateValue[0]}*`
+            } else {
+                operateValue.push("*")
+                disp.textContent += "*"
+            }
         })
         let divideButton = document.querySelector(".divide")
         divideButton.addEventListener("click", () => {
@@ -162,8 +178,13 @@
             if (operateValue.length === 3) {
                 startCalc()
             }
-            operateValue.push("/")
-            disp.textContent += "/"
+            if (typeof operateValue[1] === "string") {
+                operateValue.splice(1,1,"/")
+                disp.textContent = `${operateValue[0]}/`
+            } else {
+                operateValue.push("/")
+                disp.textContent += "/"
+            }
         })
 
         let dotButton = document.querySelector(".dot")
