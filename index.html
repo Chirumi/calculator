@@ -10,6 +10,7 @@
 <body>
     <div>
         <div class="displayV"></div>
+        <div class="displayV2"></div>
     </div>
     <div class="calcBody">
         <div class="numbers">
@@ -36,9 +37,12 @@
         <div class="test"></div>
     </div>
     <script>
+        // Make it possible to handle negative numbers
+
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
+        let disp2 = document.querySelector(".displayV2")
         let changeDisplay = document.querySelector(".display")
         let clearButton = document.querySelector(".clr")
         clearButton.addEventListener("click", () => {
@@ -55,28 +59,28 @@
                 if (operatR === "+") {
                     let maths = add(a, b)
                     let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
-                    disp.textContent = rounded
+                    disp2.textContent = rounded
                     operateValue.splice(0,operateValue.length)
                     operateValue.push(rounded)
 
                 } else if (operatR === "-") {
                     let maths = subtract(a, b)
                     let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
-                    disp.textContent = rounded
+                    disp2.textContent = rounded
                     operateValue.splice(0,operateValue.length)
                     operateValue.push(rounded)
 
                 } else if (operatR === "*") {
                     let maths = multiply(a, b)
                     let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
-                    disp.textContent = rounded
+                    disp2.textContent = rounded
                     operateValue.splice(0,operateValue.length)
                     operateValue.push(rounded)
 
                 } else if (operatR === "/") {
                     let maths = divide(a, b)
                     let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
-                    disp.textContent = rounded
+                    disp2.textContent = rounded
                     operateValue.splice(0,operateValue.length)
                     operateValue.push(rounded)
 
