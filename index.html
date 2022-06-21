@@ -35,7 +35,11 @@
         <div class="test"></div>
     </div>
     <script>
-        // To do: when do I want to check if operateValue.length === 2 ?
+        // Problem: When going through the logic, I joined an empty storedNum array to operateValue which
+        // still would add an empty space as an item
+        // Therefore, go through the logic again USING "=" in the first calculation and then use "+"
+        // and then see where I joined empty array
+        // Can't use "=" twice!!
 
         let storedNums = []
         let operateValue = []
@@ -74,8 +78,10 @@
         }
 
         function joined(array) {
-            let mkString = array.join("")
-            operateValue.push(mkString)
+            if (typeof array[0] === "number") {
+                let mkString = array.join("")
+                operateValue.push(mkString)
+            }
             let clear = array.splice(0,array.length)
         }
 
