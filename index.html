@@ -50,9 +50,6 @@
         </div>
     </div>
     <script>
-        //TO DO LIST: 
-        // 1) Make backspace button work!  Only remove numbers, if operator entered, cannot remove
-        // operator
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
@@ -156,7 +153,7 @@
         // Operator buttons
         let equalsToButton = document.querySelector(".equalsTo")
         equalsToButton.addEventListener("click", () => {
-            if (typeof operateValue[0] === "string") {
+            if (typeof operateValue[0] === "string" || typeof operateValue[0] === "number") {
                 startCalc()
             } else {
                 console.log("ERROR")
