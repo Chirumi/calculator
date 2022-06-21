@@ -60,27 +60,31 @@
             } else {
                 if (operatR === "+") {
                     let maths = add(a, b)
-                    disp.textContent = maths
+                    let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
+                    disp.textContent = rounded
                     operateValue.splice(0,operateValue.length)
-                    operateValue.push(maths)
+                    operateValue.push(rounded)
 
                 } else if (operatR === "-") {
                     let maths = subtract(a, b)
-                    disp.textContent = maths
+                    let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
+                    disp.textContent = rounded
                     operateValue.splice(0,operateValue.length)
-                    operateValue.push(maths)
+                    operateValue.push(rounded)
 
                 } else if (operatR === "*") {
                     let maths = multiply(a, b)
-                    disp.textContent = maths
+                    let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
+                    disp.textContent = rounded
                     operateValue.splice(0,operateValue.length)
-                    operateValue.push(maths)
+                    operateValue.push(rounded)
 
                 } else if (operatR === "/") {
                     let maths = divide(a, b)
-                    disp.textContent = maths
+                    let rounded = Math.round((maths+Number.EPSILON)*1000000)/1000000
+                    disp.textContent = rounded
                     operateValue.splice(0,operateValue.length)
-                    operateValue.push(maths)
+                    operateValue.push(rounded)
 
                 } else {
                     console.log("ERROR!")
@@ -88,7 +92,7 @@
             }
         }
 
-        
+
         function joined(array) {
             if (typeof array[0] === "number") {
                 let mkString = array.join("")
