@@ -45,14 +45,23 @@
                 <button class="times">*</button>
                 <button class="divide">/</button>
             </div>
+            <button class="negative">+/-</button>
             <button class="clr">Clear</button>
         </div>
     </div>
     <script>
+        //TO DO LIST: 
+        // 1) Make negative numbers work!
+        // 2) Make backspace button work!
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
         let disp2 = document.querySelector(".displayV2")
+        let toNegative = document.querySelector(".negative")
+        toNegative.addEventListener("click", () => {
+            storedNums.push("-")
+            disp.textContent += "-"
+        })
         let changeDisplay = document.querySelector(".display")
         let clearButton = document.querySelector(".clr")
         clearButton.addEventListener("click", () => {
@@ -102,7 +111,7 @@
         }
 
         function joined(array) {
-            if (typeof array[0] === "number") {
+            if (typeof array[0] === "number" || typeof array[1] === "number") {
                 let mkString = array.join("")
                 operateValue.push(mkString)
             }
