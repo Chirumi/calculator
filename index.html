@@ -87,6 +87,10 @@
 
         function startCalc() {
             joined(storedNums)
+            let n = parseInt(operateValue[2])
+            if (Number.isNaN(n)) {
+                return disp.textContent = "Syntax ERROR"
+            }
             operate(parseInt(operateValue[0]), operateValue[1], parseInt(operateValue[2]))
         }
         
