@@ -30,7 +30,7 @@
             <button class="times">*</button>
             <button class="divide">/</button>
             <button class="equalsTo">=</button>
-            <button>Clear</button>
+            <button class="clr">Clear</button>
         </div>
         <div class="test"></div>
     </div>
@@ -45,6 +45,12 @@
         let operateValue = []
         let disp = document.querySelector(".displayV")
         let changeDisplay = document.querySelector(".display")
+        let clearButton = document.querySelector(".clr")
+        clearButton.addEventListener("click", () => {
+            disp.textContent = ""
+            storedNums.splice(0,storedNums.length)
+            operateValue.splice(0,operateValue.length)
+        })
 
         // storedNums functions
         function operate(a, operatR, b) {
