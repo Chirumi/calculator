@@ -51,14 +51,21 @@
     </div>
     <script>
         //TO DO LIST: 
-        // 1) Make backspace button work!
+        // 1) Make backspace button work!  Only remove numbers, if operator entered, cannot remove
+        // operator
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
         let disp2 = document.querySelector(".displayV2")
         let bSpace = document.querySelector(".bSpace")
         bSpace.addEventListener("click", () => {
-            
+            if (typeof operateValue[1] === "string") {
+                storedNums.pop()
+                disp.textContent = `${operateValue[0]}${operateValue[1]}${storedNums.join("")}`
+            } else {
+                storedNums.pop()
+                disp.textContent = `${storedNums.join("")}`
+            }
         })
         let toNegative = document.querySelector(".negative")
         toNegative.addEventListener("click", () => {
