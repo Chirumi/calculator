@@ -51,12 +51,15 @@
     </div>
     <script>
         //TO DO LIST: 
-        // 1) Make negative numbers work!
-        // 2) Make backspace button work!
+        // 1) Make backspace button work!
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
         let disp2 = document.querySelector(".displayV2")
+        let bSpace = document.querySelector(".bSpace")
+        bSpace.addEventListener("click", () => {
+            
+        })
         let toNegative = document.querySelector(".negative")
         toNegative.addEventListener("click", () => {
             storedNums.push("-")
@@ -145,8 +148,13 @@
 
         // Operator buttons
         let equalsToButton = document.querySelector(".equalsTo")
-        equalsToButton.addEventListener("click", startCalc)
-
+        equalsToButton.addEventListener("click", () => {
+            if (typeof operateValue[0] === "string") {
+                startCalc()
+            } else {
+                console.log("ERROR")
+            }
+        })
         
         let plusButton = document.querySelector(".plus")
         plusButton.addEventListener("click", () => {
