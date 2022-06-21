@@ -13,33 +13,42 @@
         <div class="displayV2"></div>
     </div>
     <div class="calcBody">
-        <div class="numbers">
-            <button class="no1">1</button>
-            <button class="no2">2</button>
-            <button class="no3">3</button>
-            <button class="no4">4</button>
-            <button class="no5">5</button>
-            <button class="no6">6</button>
-            <button class="no7">7</button>
-            <button class="no8">8</button>
-            <button class="no9">9</button>
-            <button class="no0">0</button>
+        <div class="numPad">
+            <div class="row1">
+                <button class="no7">7</button>
+                <button class="no8">8</button>
+                <button class="no9">9</button>
+            </div>
+            <div class="row2">
+                <button class="no4">4</button>
+                <button class="no5">5</button>
+                <button class="no6">6</button>
+            </div>
+            <div class="row3">
+                <button class="no1">1</button>
+                <button class="no2">2</button>
+                <button class="no3">3</button>
+            </div>
+            <div class="row4">
+                <button class="dot">.</button>
+                <button class="no0">0</button>
+                <button class="equalsTo">=</button>
+            </div>
         </div>
-        <div class="storedNumss">
-            <button class="plus">+</button>
-            <button class="minus">-</button>
-            <button class="times">*</button>
-            <button class="divide">/</button>
-            <button class="dot">.</button>
-            <button class="equalsTo">=</button>
+        <div class="functionPad">
+            <button class="bSpace">Backspace</button>
+            <div class="plusMinus">
+                <button class="plus">+</button>
+                <button class="minus">-</button>
+            </div>
+            <div class="timesDivide">
+                <button class="times">*</button>
+                <button class="divide">/</button>
+            </div>
             <button class="clr">Clear</button>
         </div>
-        <div class="test"></div>
     </div>
     <script>
-        // Make it possible to change operators using if conditionals
-        // Make it possible to handle negative numbers
-
         let storedNums = []
         let operateValue = []
         let disp = document.querySelector(".displayV")
@@ -48,6 +57,7 @@
         let clearButton = document.querySelector(".clr")
         clearButton.addEventListener("click", () => {
             disp.textContent = ""
+            disp2.textContent = ""
             storedNums.splice(0,storedNums.length)
             operateValue.splice(0,operateValue.length)
         })
@@ -90,7 +100,6 @@
                 }
             }
         }
-
 
         function joined(array) {
             if (typeof array[0] === "number") {
