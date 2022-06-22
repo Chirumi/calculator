@@ -21,7 +21,8 @@ body {
 .row3,
 .row4,
 .plusMinus,
-.timesDivide {
+.timesDivide,
+.negativeClr {
     display: flex;
     flex-direction: row;
 }
@@ -30,7 +31,6 @@ body {
     padding-right: 17px;
     padding-left: 17px;
 }
-
 
 .no0,
 .dot {
@@ -46,7 +46,8 @@ body {
 }
 
 .plusMinus,
-.timesDivide {
+.timesDivide,
+.negativeClr {
     justify-content: center;
     align-items: center;
 }
@@ -71,5 +72,17 @@ body {
 }
 
 .bSpace {
+    padding-right: 8px;
+}
+
+.negative {
+    padding-left: 57px;
+    padding-right: 57px;
+}
+
+.clr {
+    font-size: 74px;
+    padding-top: 3px;
+    padding-bottom: 6px;
     padding-right: 8px;
 }
