@@ -1,24 +1,75 @@
 * {
-    font-size: 50px;
+    font-size: 80px;
 }
 
 body {
-    height: 100vh;
-    display:flex;
+    display: flex;
     flex-direction: column;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
 
 .calcBody {
     display: flex;
+    flex-direction: row;
+    background-color: red;
 }
 
 .row1,
 .row2,
 .row3,
-.row4 {
+.row4,
+.plusMinus,
+.timesDivide {
     display: flex;
+    flex-direction: row;
+}
+
+.dot {
+    padding-right: 17px;
+    padding-left: 17px;
+}
+
+
+.no0,
+.dot {
+    font-size: 80px;
+}
+
+.equalsTo {
+    font-size: 70px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+}
+
+.plusMinus,
+.timesDivide {
     justify-content: center;
     align-items: center;
+}
+
+.plus,
+.minus {
+    padding-left: 81.7px;
+    padding-right: 82px;
+}
+
+.divide {
+    padding-left: 91px;
+    padding-right: 80px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 70px;
+}
+
+.times {
+    padding-right: 90px;
+    padding-left: 89px;
+}
+
+.bSpace {
+    padding-right: 8px;
 }
