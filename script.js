@@ -11,15 +11,26 @@ const equal = document.querySelector(".equal")
 // run operate function using leftHandSide, operator and rightHandSide arrays
 // Clear all arrays and then push operate results to displayValue for repeats
 
+// TO IMPLEMENT:
+// When clicking a number after "=", reset everything and put thue number in displayValue
+
 let leftHandSide = []
 let operator = []
 let rightHandSide = []
 let displayValue = []
+let answer = []
 
 numbers.forEach((x) => {
     x.addEventListener("click", () => {
-        display.innerHTML += x.innerHTML
-        displayValue.push(x.innerHTML)
+        if (typeof answer[0] == "number") {
+            display.innerHTML = x.innerHTML
+            displayValue = []
+            displayValue.push(x.innerHTML)
+        } 
+        else {
+            display.innerHTML += x.innerHTML
+            displayValue.push(x.innerHTML)
+        }
     })
 })
 
@@ -27,11 +38,13 @@ operators.forEach((y) => {
     y.addEventListener("click", () => {
         if (typeof leftHandSide[0] == "string" && typeof displayValue[0] == "string") {
             calculate()
+            answer = []
             display.innerHTML += y.innerHTML
             operator.push(y.innerHTML)
             leftHandSide.push(displayValue.splice(0).join(""))
         }
         else {
+            answer = []
             display.innerHTML += y.innerHTML
             operator.push(y.innerHTML)
             leftHandSide.push(displayValue.splice(0).join(""))
@@ -69,19 +82,23 @@ function operate(l, o, r) {
 function add(l, r) {
     display.innerHTML = (+l) + (+r)
     displayValue.push((+l) + (+r))
+    answer.push((+l) + (+r))
 }
 
 function subtract(l, r) {
     display.innerHTML = l - r
     displayValue.push(l - r)
+    answer.push((+l) + (+r))
 }
 
 function multiply(l, r) {
     display.innerHTML = l * r
     displayValue.push(l * r)
+    answer.push((+l) + (+r))
 }
 
 function divide(l, r) {
     display.innerHTML = l / r
     displayValue.push(l / r)
+    answer.push((+l) + (+r))
 }
