@@ -3,6 +3,7 @@ const numbers = document.querySelectorAll(".num")
 const operators = document.querySelectorAll(".operate")
 const equal = document.querySelector(".equal")
 
+// HOW IT WORKS:
 // When numbers click, store values at displayValue
 // When an operator is clicked, move value to leftHandSide and fill in operator array
 // When number clicked again, store value at displayValue
@@ -32,11 +33,11 @@ operators.forEach((y) => {
 
 equal.addEventListener("click", () => {
     rightHandSide.push(displayValue.splice(0).join(""))
+    displayValue = []
     operate(leftHandSide.toString(), operator.toString(), rightHandSide.toString())
     leftHandSide = []
     operator = []
     rightHandSide = []
-    displayValue = []
 })
 
 function operate(l, o, r) {
@@ -56,17 +57,20 @@ function operate(l, o, r) {
 
 function add(l, r) {
     display.innerHTML = (+l) + (+r)
-    
+    displayValue.push((+l) + (+r))
 }
 
 function subtract(l, r) {
     display.innerHTML = l - r
+    displayValue.push(l - r)
 }
 
 function multiply(l, r) {
     display.innerHTML = l * r
+    displayValue.push(l * r)
 }
 
 function divide(l, r) {
     display.innerHTML = l / r
+    displayValue.push(l / r)
 }
