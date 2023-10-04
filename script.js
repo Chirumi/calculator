@@ -11,8 +11,6 @@ const equal = document.querySelector(".equal")
 // run operate function using leftHandSide, operator and rightHandSide arrays
 // Clear all arrays and then push operate results to displayValue for repeats
 
-// TO IMPLEMENT:
-// When clicking a number after "=", reset everything and put thue number in displayValue
 
 let leftHandSide = []
 let operator = []
@@ -53,7 +51,9 @@ operators.forEach((y) => {
 })
 
 equal.addEventListener("click", () => {
-    calculate()
+    if (typeof operator[0] == "string") {
+        calculate()
+    }
 })
 
 function calculate () {
