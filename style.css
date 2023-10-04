@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.pad {
+    display: flex;
+}
+
+.numPad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80px;
+}
+
+.operatorPad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+}

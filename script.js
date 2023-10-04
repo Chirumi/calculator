@@ -1,6 +1,46 @@
-let leftHandSide = 0
-let operator = 0
-let rightHandSide = 0
+const display = document.querySelector(".display")
+const numbers = document.querySelectorAll(".num")
+const operators = document.querySelectorAll(".operate")
+
+// When numbers click, store values at displayValue
+// When an operator is clicked, move value to leftHandSide and fill in operator array
+// When number clicked again, store value at displayValue
+// When = is clicked, move value to rightHandSide and then run operate function
+
+let leftHandSide = []
+let operator = []
+let rightHandSide = []
+let displayValue = []
+
+numbers.forEach((x) => {
+    x.addEventListener("click", () => {
+        display.innerHTML += x.innerHTML
+        displayValue.push(x.innerHTML)
+    })
+})
+
+operators.forEach((y) => {
+    y.addEventListener("click", () => {
+        display.innerHTML += y.innerHTML
+        operator.push(y.innerHTML)
+        leftHandSide.push(displayValue.splice(0).join(""))
+    })
+})
+
+function operate(l, o, r) {
+    if (o == "+") {
+        add(l, r)
+    }
+    else if (o == "-") {
+        subtract(l, r)
+    }
+    else if (o == "*") {
+        multiply(l, r)
+    }
+    else if (o == "/") {
+        divide(l, r)
+    }
+}
 
 function add(l, r) {
     return l + r
@@ -16,19 +56,4 @@ function multiply(l, r) {
 
 function divide(l, r) {
     return l / r
-}
-
-function operate(l, o, r) {
-    if (o == "+") {
-        add(l, r)
-    }
-    else if (o == "-") {
-        subtract(l, r)
-    }
-    else if (o == "*") {
-        multiply(l, r)
-    }
-    else if (o == "/") {
-        divide(l, r)
-    }
 }
