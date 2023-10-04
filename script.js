@@ -2,6 +2,7 @@ const display = document.querySelector(".display")
 const numbers = document.querySelectorAll(".num")
 const operators = document.querySelectorAll(".operate")
 const equal = document.querySelector(".equal")
+const clear = document.querySelector(".clear")
 
 // HOW IT WORKS:
 // When numbers click, store values at displayValue
@@ -11,12 +12,12 @@ const equal = document.querySelector(".equal")
 // run operate function using leftHandSide, operator and rightHandSide arrays
 // Clear all arrays and then push operate results to displayValue for repeats
 
-
 let leftHandSide = []
 let operator = []
 let rightHandSide = []
 let displayValue = []
-let answer = []
+let answer = [] // allows number to change when a number is pressed after clicking "=", instead
+// of concatenating the number to the previous calculation
 
 numbers.forEach((x) => {
     x.addEventListener("click", () => {
@@ -25,6 +26,10 @@ numbers.forEach((x) => {
             displayValue = []
             displayValue.push(x.innerHTML)
         } 
+        else if (display.innerHTML == "0") {
+            display.innerHTML = x.innerHTML
+            displayValue.push(x.innerHTML)
+        }
         else {
             display.innerHTML += x.innerHTML
             displayValue.push(x.innerHTML)
@@ -54,6 +59,15 @@ equal.addEventListener("click", () => {
     if (typeof operator[0] == "string") {
         calculate()
     }
+})
+
+clear.addEventListener("click", () => {
+    leftHandSide = []
+    operator = []
+    rightHandSide = []
+    displayValue = []
+    answer = []
+    display.innerHTML = 0
 })
 
 function calculate () {

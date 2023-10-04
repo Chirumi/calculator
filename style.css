@@ -4,6 +4,10 @@ body {
     justify-content: center;
 }
 
+.display {
+    text-align: right;
+}
+
 .container {
     display: flex;
     flex-direction: column;
