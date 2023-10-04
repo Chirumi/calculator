@@ -1,11 +1,14 @@
 const display = document.querySelector(".display")
 const numbers = document.querySelectorAll(".num")
 const operators = document.querySelectorAll(".operate")
+const equal = document.querySelector(".equal")
 
 // When numbers click, store values at displayValue
 // When an operator is clicked, move value to leftHandSide and fill in operator array
 // When number clicked again, store value at displayValue
-// When = is clicked, move value to rightHandSide and then run operate function
+// When = is clicked, move value to rightHandSide and then 
+// run operate function using leftHandSide, operator and rightHandSide arrays
+// Clear all arrays and then push operate results to displayValue for repeats
 
 let leftHandSide = []
 let operator = []
@@ -27,6 +30,15 @@ operators.forEach((y) => {
     })
 })
 
+equal.addEventListener("click", () => {
+    rightHandSide.push(displayValue.splice(0).join(""))
+    operate(leftHandSide.toString(), operator.toString(), rightHandSide.toString())
+    leftHandSide = []
+    operator = []
+    rightHandSide = []
+    displayValue = []
+})
+
 function operate(l, o, r) {
     if (o == "+") {
         add(l, r)
@@ -43,17 +55,18 @@ function operate(l, o, r) {
 }
 
 function add(l, r) {
-    return l + r
+    display.innerHTML = (+l) + (+r)
+    
 }
 
 function subtract(l, r) {
-    return l - r
+    display.innerHTML = l - r
 }
 
 function multiply(l, r) {
-    return l * r
+    display.innerHTML = l * r
 }
 
 function divide(l, r) {
-    return l / r
+    display.innerHTML = l / r
 }
