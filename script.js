@@ -25,20 +25,31 @@ numbers.forEach((x) => {
 
 operators.forEach((y) => {
     y.addEventListener("click", () => {
-        display.innerHTML += y.innerHTML
-        operator.push(y.innerHTML)
-        leftHandSide.push(displayValue.splice(0).join(""))
+        if (typeof leftHandSide[0] == "string" && typeof displayValue[0] == "string") {
+            calculate()
+            display.innerHTML += y.innerHTML
+            operator.push(y.innerHTML)
+            leftHandSide.push(displayValue.splice(0).join(""))
+        }
+        else {
+            display.innerHTML += y.innerHTML
+            operator.push(y.innerHTML)
+            leftHandSide.push(displayValue.splice(0).join(""))
+        }
     })
 })
 
 equal.addEventListener("click", () => {
+    calculate()
+})
+
+function calculate () {
     rightHandSide.push(displayValue.splice(0).join(""))
-    displayValue = []
     operate(leftHandSide.toString(), operator.toString(), rightHandSide.toString())
     leftHandSide = []
     operator = []
     rightHandSide = []
-})
+}
 
 function operate(l, o, r) {
     if (o == "+") {
